@@ -3,60 +3,36 @@
 // Title
 $lang['stakeholder_mp-title'] = 'Stakeholder Management';
 
-
-// Select
-$lang['select-stakeholder-tooltip'] = 'Select Stakeholder Example';
-$lang['select-interest-level-tooltip'] = 'Select Interest Level Example';
-$lang['select-power-level-tooltip'] = 'Select Power Level Example';
-$lang['select-influence-level-tooltip'] = 'Select Influece Level Example';
-$lang['select-impact-level-tooltip'] = 'Select Impact Level Example';
-$lang['select-current-engagement-tooltip'] = 'Select current Engagement Example';
-$lang['select-expected-engagement-tooltip'] = 'Select Expected Engagement Example';
-$lang['select-current-average-tooltip'] = 'Select Current Average Example';
-
-$lang['select-1'] = 'Select Stakeholder';
-$lang['select-2'] = 'Interest Level';
-$lang['select-3'] = 'Power Level';
-$lang['select-4'] = 'Influece Level';
-$lang['select-5'] = 'Impact Level';
-$lang['select-6'] = 'Current Engagement';
-$lang['select-7'] = 'Desired Engagement';
-$lang['select-8'] = "Add New Stakeholder";
-
-
-
-//options
-$lang['option-1'] = 'Unaware';
-$lang['option-2'] = 'Supportive';
-$lang['option-3'] = 'Leanding';
-$lang['option-4'] = 'Neutral';
-$lang['option-5'] = 'Resistant';
-//Form 
-$lang['stakeholder_mp-text1-tooltip'] = 'Engagement / Management Strategy Example';
-$lang['stakeholder_mp-text2-tooltip'] = 'Scope and Impact of Changes to IP Example';
-$lang['stakeholder_mp-text3-tooltip'] = 'Observations with other IPs Example';
-
- 
 //Table
-$lang['stake'] = 'Stakeholder';
+$lang['stakeholder'] = 'Stakeholder';
 $lang['interest'] = "Interest";
 $lang['power'] = "Power";
 $lang['influence'] = "Influence";
 $lang['impact'] = "Impact";
-$lang['average'] = "Average Importance";
+$lang['average'] = "Average";
 $lang['current_engagement'] = "Current Engagement";
 $lang['expected_engagement'] = "Current Engagement";
-$lang['scope'] = "Scope and Impact of Changes to IP";
-$lang['strategy'] = "Engagement / Management Strategy";
-$lang['observation'] = "Observations with other IPs";
+$lang['scope'] = "Scope";
+$lang['strategy'] = "Strategy";
+$lang['observation'] = "Observation";
 
+$lang['stakeholder-tp'] = 'Stakeholder Example';
+$lang['interest-tp'] = 'Interest Example';
+$lang['power-tp'] = 'Power Example';
+$lang['influence-tp'] = 'Influece Example';
+$lang['impact-tp'] = 'Impact Example';
+$lang['average-tp'] = 'Average Example';
+$lang['current_engagement-tp'] = 'Current engagement Example';
+$lang['expected_engagement-tp'] = 'Expected engagement Example';
+$lang['current_average-tp'] = 'Current average Example';
+$lang['strategy-tp'] = 'Strategy Example';
+$lang['scope-tp'] = 'Scope Example';
+$lang['observation-tp'] = 'Observation Example';
 
-$lang['text-1'] = 'Engagement / Management Strategy';
-$lang['text-2'] = 'Scope and Impact of Changes to IP';
-$lang['text-3'] = 'Observations with other IPs';
-$lang['text-4'] = 'Average Importance';
-$lang['text-5'] = 'Stakeholder';
-$lang['text-6'] = 'Interest';
-
-
+//options
+$lang['unaware'] = 'Unaware';
+$lang['supportive'] = 'Supportive';
+$lang['leading'] = 'Leanding';
+$lang['neutral'] = 'Neutral';
+$lang['resistant'] = 'Resistant';
 ?>
