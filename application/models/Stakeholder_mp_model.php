@@ -9,52 +9,17 @@ class Stakeholder_mp_model extends CI_Model{
 		parent::__construct();
 	}
 
-public function insert_stake_mp($postData){
-		$interest = $postData ['interest'];
-		$power = $postData['power'];
-		$impact = $postData['impact'];
-		$influence = $postData['influence'];
-
-		$average = ($influence + $power + $interest + $impact) / 4;
-
-		$data = array(
-			'stakeholder_id' => $postData ['stakeholder_id'],
-			'project_id' => $postData ['project_id'],
-			'interest' => $postData['interest'],
-			'power' => $postData['power'],
-			'influence' => $postData['influence'],
-			'impact' => $postData['impact'],
-			'average' => $average,
-			'current_engagement' => $postData['current_engagement'],
-			'expected_engagement' => $postData['expected_engagement'],
-		    'strategy' => $postData['strategy'],
-		    'scope' => $postData['scope'],
-		    'observation' => $postData['observation']
-	     	);
-
-
-
-
-	 	$query = $this->db->insert('stakeholder_mp',$data);
-		if($query){
-				redirect('stakeholder_mp/stakeholder_mp_list/'.$data['project_id']);
-			}
-	}
-
-		public function getStakeholder_mpStakeholder_item_id($project_id){
-			$query = $this->db->get_where('stakeholder_mp', array('stakeholder_mp.project_id'=>$project_id));
-			return $query->result();
-		}
-
-
-	public function getStakeholder(){
-		$query = $this->db->get_where('stakeholder');
+	public function getWithProject_id($project_id){
+		$query = $this->db->get_where('stakeholder_mp', array('stakeholder_mp.project_id'=>$project_id));
 		return $query->result();
 	}
 
+	public function insert($stakeholder_mp){
+		return $this->db->insert('stakeholder_mp', $stakeholder_mp);
+	}
 
-	public function getProjectId($id){
-		$query = $this->db->get_where('stakeholder_mp',array('project_id'=>$id));
+	public function get(){
+		$query = $this->db->get_where('stakeholder');
 		return $query->result();
 	}
 

@@ -120,7 +120,7 @@
       <div class="col-lg-2 form-group">
         <label><?=$this->lang->line('average')?></label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('average-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-        <input type="text" class="form-control" name="average" id="average" onchange="changed(this)" readonly>
+        <input type="text" class="form-control" name="average" id="average" onchange="changed(this)" readonly required>
       </div>
 
       <div class="col-lg-12 form-group">
@@ -153,7 +153,7 @@
         </button> 
       </form>
 
-      <form action="<?php echo base_url("stakeholder_mp/stakeholder_mp_list/".$project_id); ?>" >
+      <form action="<?php echo base_url('project/').$project_id?>" >
         <button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
       </form>
 
