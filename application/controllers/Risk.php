@@ -43,7 +43,6 @@ class Risk extends CI_Controller{
         $risk_mp['reviewed_tolerances'] = $this->input->post('reviewed_tolerances');
         $risk_mp['traceability'] = $this->input->post('traceability');
         $risk_mp['project_id'] = $this->input->post('project_id');
-        $risk_mp['status'] = $this->input->post('status');
         $risk_mp['status'] = 1;
         $query = $this->risk_mp_model->insert($risk_mp);
 
@@ -62,7 +61,6 @@ class Risk extends CI_Controller{
         $risk_mp['reviewed_tolerances'] = $this->input->post('reviewed_tolerances');
         $risk_mp['traceability'] = $this->input->post('traceability');
         $risk_mp['project_id'] = $this->input->post('project_id');
-        $risk_mp['status'] = $this->input->post('status');
         $risk_mp['status'] = 1;
        
             $query = $this->risk_mp_model->update($risk_mp, $id);

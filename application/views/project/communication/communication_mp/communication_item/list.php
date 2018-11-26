@@ -25,7 +25,7 @@
 						<button type="button" class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Communication_item/new/<?php echo $project_id ?>'"><?=$this->lang->line('btn-new')?> <?=$this->lang->line('communication-item')?></button>
 						<button type="button" class="btn btn-info btn-lg" data-target=""><em class="fa fa-pencil"></em><span class="hidden-xs"> <?=$this->lang->line('stakeholder')?></span></button>
 
-						<div class="col-lg-12">
+						<div class="col-sm-12">
 							<br><br>
 							<div>
 								<table class="table table-bordered table-striped" id="tableNB">
@@ -79,7 +79,6 @@
 									</tbody>
 								</table>
 							</div>
-						</div>
 						<!-- /.row --> </div> 
 						<div class="col-sm-12" position= "absolute">
 							<div class="container">

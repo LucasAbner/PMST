@@ -17,63 +17,59 @@
 				</div>
 			<?php endif; ?>
 			<!-- /.row -->   
+			<div class="row">
+				<form method="POST" action="<?php echo base_url()?>Notification_board/insert/">
 
-			<div class="container">
-				<div class="row">
-					<form method="POST" action="<?php echo base_url()?>Notification_board/insert/">
+					<input type="hidden" name="project_id" value="<?=$project_id?>">
 
-						<input type="hidden" name="project_id" value="<?=$project_id?>">
+					<div class=" col-lg-12 form-group">
+						<label for="running_activities"><?=$this->lang->line('running_activities')?> </label> 
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('running_activities-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-						<div class=" col-lg-12 form-group">
-							<label for="running_activities"><?=$this->lang->line('running_activities')?> </label> 
-							<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('running_activities-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="running_activities" name="running_activities" maxlength="4000"></textarea>
-
-						</div>
-
-						<div class=" col-lg-12 form-group">
-							<label for="important_activities"><?=$this->lang->line('important_activities')?> </label> 
-							<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('important_activities-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="important_activities" name="important_activities" maxlength="4000"></textarea>
-
-						</div>
-
-						<div class=" col-lg-12 form-group">
-							<label for="open_issues"><?=$this->lang->line('open_issues')?> </label> 
-							<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('open_issues-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="open_issues" name="open_issues" maxlength="4000"></textarea>
-
-						</div>
-
-						<div class=" col-lg-12 form-group">
-							<label for="changes_approval"><?=$this->lang->line('changes_approval')?> </label> 
-							<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('changes_approval-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="changes_approval" name="changes_approval" maxlength="4000"></textarea> 
-
-						</div>
-
-						<div class=" col-lg-12 form-group">
-							<label for="general_warnings"><?=$this->lang->line('general_warnings')?> </label> 
-							<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('general_warnings-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-							<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="general_warnings" name="general_warnings" maxlength="4000"></textarea>
-						</div>
-
-						<div class="col-lg-12">
-							<button id="new_quality_plan-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
-								<i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
-							</button> 
-						</form>
-
-						<form action="<?php echo base_url()?>/Notification_board/list/<?=$project_id?>">
-							<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
-						</form>
+						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="running_activities" name="running_activities" maxlength="4000"></textarea>
 
 					</div>
+
+					<div class=" col-lg-12 form-group">
+						<label for="important_activities"><?=$this->lang->line('important_activities')?> </label> 
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('important_activities-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="important_activities" name="important_activities" maxlength="4000"></textarea>
+
+					</div>
+
+					<div class=" col-lg-12 form-group">
+						<label for="open_issues"><?=$this->lang->line('open_issues')?> </label> 
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('open_issues-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="open_issues" name="open_issues" maxlength="4000"></textarea>
+
+					</div>
+
+					<div class=" col-lg-12 form-group">
+						<label for="changes_approval"><?=$this->lang->line('changes_approval')?> </label> 
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('changes_approval-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="changes_approval" name="changes_approval" maxlength="4000"></textarea> 
+
+					</div>
+
+					<div class=" col-lg-12 form-group">
+						<label for="general_warnings"><?=$this->lang->line('general_warnings')?> </label> 
+						<a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('general_warnings-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
+
+						<textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="general_warnings" name="general_warnings" maxlength="4000"></textarea>
+					</div>
+
+					<div class="col-lg-12">
+						<button id="new_quality_plan-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
+							<i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
+						</button> 
+					</form>
+
+					<form action="<?php echo base_url()?>/Notification_board/list/<?=$project_id?>">
+						<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+					</form>
 				</div>
 
 				<!-- /.row --> </div> 
