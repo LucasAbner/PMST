@@ -17,19 +17,14 @@
 				</div>
 			<?php endif; ?>
 			<!-- /.row -->
-
 			<div class="row">
 				<div class="col-lg-10">
-					
 					<button class="btn btn-info btn-lg glyphicon-plus" onclick="window.location.href='<?php echo base_url() ?>Requirement_registration/new/<?php echo $project_id ?>'"> <?=$this->lang->line('btn-new')?> <?=$this->lang->line('requirement-registration')?></button>			
-					
 				</div>
 			</div>
-
 			<br><br>
 			<div class="row">
 				<div class="col-lg-12">
-					
 					<table class="table table-bordered table-striped" id="tableNB">
 						<thead>
 							<tr>
@@ -38,7 +33,6 @@
 								<th><?=$this->lang->line('description')?></th>
 								<th><?=$this->lang->line('priority')?></th>
 								<th><?=$this->lang->line('business_strategy')?></th>
-								
 								<th><?=$this->lang->line('btn-actions')?></th>
 							</tr>
 						</thead>
@@ -55,92 +49,122 @@
 									
 
 									<td style="max-width: 20px">
-									<div class="row center">
-										<div class="col-sm-4">
-											<form action="<?php echo base_url() ?>Requirement_registration/edit/<?php echo $requirement_registration->requirement_registration_id; ?>" method="post">
-												<input type="hidden" name="project_id" value="<?=$requirement_registration->project_id?>">
-												<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
-											</form>
+										<div class="row center">
+											<div class="col-sm-4">
+												<form action="<?php echo base_url() ?>Requirement_registration/edit/<?php echo $requirement_registration->requirement_registration_id; ?>" method="post">
+													<input type="hidden" name="project_id" value="<?=$requirement_registration->project_id?>">
+													<button type="submit" class="btn btn-default"><em class="fa fa-pencil"></em><span class="hidden-xs"></span></button>
+												</form>
+											</div>
+											<div class="col-sm-4">
+												<form action="<?php echo base_url() ?>Requirement_registration/delete/<?php echo $requirement_registration->requirement_registration_id; ?>" method="post">
+													<input type="hidden" name="project_id" value="<?=$project_id?>">
+													<button type="submit" class="btn btn-danger" onclick="deletar(<?=$requirement_registration->project_id?>, <?= $requirement_registration->requirement_registration_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+												</form>
+											</div>
 										</div>
-
-
-										<div class="col-sm-4">
-											<form action="<?php echo base_url() ?>Requirement_registration/delete/<?php echo $requirement_registration->requirement_registration_id; ?>" method="post">
-												<input type="hidden" name="project_id" value="<?=$project_id?>">
-												<button type="submit" class="btn btn-danger" ><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-											</form>
-										</div>
-									</div>
-								</td>
-							</tr> 
-							<?php
-						}
-						?>
-
-					</tbody>
-				</table> 
-
-
-
-				<!-- /.row -->  
-				<div class="col-sm-12" position= "absolute">
-					<div class="container">
-						<?php $this->load->view('frame/footer_view') ?>            
-					</div>
+									</td>
+								</tr> 
+								<?php
+							}
+							?>
+						</tbody>
+					</table> 
+					<form action="<?php echo base_url('project/'); ?><?=$requirement_registration->project_id?>" >
+						<button class="btn btn-lg btn-info pull-left" >  <i class="glyphicon glyphicon-chevron-left"></i> <?=$this->lang->line('btn-back')?></button>
+					</form>
+					<!-- /.row -->  
 				</div>
-			</div>
 
-			<script src="<?=base_url()?>assets/js/jquery-2.1.3.min.js"></script>
-			<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>
-			<script src="<?=base_url()?>assets/js/dataTables.bootstrap.js"></script>
-			<script src="<?=base_url()?>assets/js/dataTables.responsive.js"></script>
+				<?php $this->load->view('frame/footer_view') ?>
 
-			<script type="text/javascript">
-				'use strict'
-				let table;
+				<script src="<?=base_url()?>assets/js/jquery-2.1.3.min.js"></script>
+				<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>
+				<script src="<?=base_url()?>assets/js/dataTables.bootstrap.js"></script>
+				<script src="<?=base_url()?>assets/js/dataTables.responsive.js"></script>
 
-				$(document).ready( function () {
-					table = $('#tableNB').DataTable({
-						"columns": [
-						{ "data": "#", "orderable": false},
-						{ "data": "associated_id" },
-						{ "data": "description" },
-						{ "data": "priority" },
-						{ "data": "business_strategy" },
-						{ "data": "btn-actions", "orderable": false}
-						],
-						"order": [[1, 'attr']]
+				<script type="text/javascript">
+					'use strict'
+					let table;
+
+					$(document).ready( function () {
+						table = $('#tableNB').DataTable({
+							"columns": [
+							{ "data": "#", "orderable": false},
+							{ "data": "associated_id" },
+							{ "data": "description" },
+							{ "data": "priority" },
+							{ "data": "business_strategy" },
+							{ "data": "btn-actions", "orderable": false}
+							],
+							"order": [[1, 'attr']]
+						});
+					} );
+
+					$("#tableNB tbody td.moreInformationTable").on("click", function() {
+						let element = jQuery($(this)[0].parentNode);
+						let tr = element.closest('tr');
+						let row = table.row(tr);
+						console.log(element)
+						let dados = JSON.parse(element.attr("dados"));
+
+						if ( row.child.isShown() ) {
+							row.child.hide();
+							tr.removeClass('shown');
+						}
+						else {
+							row.child( format(dados) ).show();
+							tr.addClass('shown');
+						}
 					});
-				} );
 
-				$("#tableNB tbody td.moreInformationTable").on("click", function() {
-					let element = jQuery($(this)[0].parentNode);
-					let tr = element.closest('tr');
-					let row = table.row(tr);
-					console.log(element)
-					let dados = JSON.parse(element.attr("dados"));
-
-					if ( row.child.isShown() ) {
-						row.child.hide();
-						tr.removeClass('shown');
+					function format (dados) {
+						return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+						'<tr>'+
+						'<td> <b><?=$this->lang->line('supporting_documentation')?>:</b> ' + dados.supporting_documentation + '</td>'+
+						'</tr>'+
+						'<tr>'+
+						'<td> <b><?=$this->lang->line('type')?>:</b> ' + dados.type + '</td>'+
+						'</tr>'+
+						'<tr>'+
+						'<td><b><?=$this->lang->line('requester')?>:</b> ' + dados.requester + '</td>'+
+						'</tr>'+
+						'<tr>'+
+						'<td><b><?=$this->lang->line('complexity')?>:</b> ' + dados.complexity + '</td>'+
+						'</tr>'+
+						'<tr>'+
+						'<td><b><?=$this->lang->line('acceptance_criteria')?>:</b> ' + dados.acceptance_criteria + '</td>'+
+						'</tr>'+
+						'<tr>'+
+						'<td><b><?=$this->lang->line('responsible')?>:</b> ' + dados.responsible + '</td>'+
+						'</tr>'+
+						'<td><b><?=$this->lang->line('validity')?>:</b> ' + dados.validity + '</td>'+
+						'</tr>'+
+						'<td><b><?=$this->lang->line('requirement_situation')?>:</b> ' + dados.requirement_situation + '</td>'+
+						'</table>';
 					}
-					else {
-						row.child( format(dados) ).show();
-						tr.addClass('shown');
-					}
-				});
 
-				function format (dados) {
-					return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
-					'<tr>'+
-					'<td>Supporting Documentation: </td>'+
-					'<td>'+dados.supporting_documentation+'</td>'+
-					'</tr>'+
-					'<tr>'+
-					'<td>Type: </td>'+
-					'<td>'+dados.type+'</td>'+
-					'</tr>'+
-					'</table>';
-				}
-
-			</script>
+						function deletar(idProjeto, idRequirement){
+							//e.preventDefault();
+							alertify.confirm('Do you agree?').setting({
+								'labels':{
+									ok: 'Agree',
+									cancel: 'Cancel'
+								},
+								'reverseButtons': false,
+								'onok': function(){
+									console.log(`Passei o ${idProjeto} e ${idRequirement}`);
+									$.post("<?php echo base_url() ?>Requirement_registration/delete/" + idRequirement,
+									{
+										project_id: idProjeto,
+									});
+									location.reload();
+									alertify.success('You agree.');
+								},
+								'oncancel': function(){
+									alertify.error('You did not agree.');
+								}
+							}).show();
+						}
+						
+				</script>

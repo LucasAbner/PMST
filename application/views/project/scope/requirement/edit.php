@@ -24,10 +24,10 @@
           <input type="hidden" name="project_id"  value="<?= $requirement_registration[0]->project_id?>">
 
           <div class=" col-lg-4 form-group">
-            <label for="associated_id"><?=$this->lang->line('associated_id')?> </label> 
+            <label for="associated_id"><?=$this->lang->line('associated_id')?> *</label> 
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('associated_id-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-            <input class="form-control" type="text" id="associated_id" name="associated_id" maxlength="45" value="<?= $requirement_registration[0]->associated_id?>">
+            <input class="form-control" type="text" id="associated_id" name="associated_id" maxlength="45" value="<?= $requirement_registration[0]->associated_id?>" required>
 
           </div>
 
@@ -48,10 +48,10 @@
           </div>
 
           <div class=" col-lg-12 form-group">
-            <label for="description"><?=$this->lang->line('description')?> </label> 
+            <label for="description"><?=$this->lang->line('description')?> *</label> 
             <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('description-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
-            <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="description" name="description" maxlength="255"><?= $requirement_registration[0]->description?></textarea> 
+            <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="description" name="description" maxlength="255" required><?= $requirement_registration[0]->description?></textarea> 
 
           </div>
 

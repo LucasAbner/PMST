@@ -25,34 +25,27 @@
         <input type="hidden" name="project_id"  value="<?= $project_id?>">
 
         <div class=" col-lg-4 form-group">
-          <label for="associated_id"><?=$this->lang->line('associated_id')?> </label> 
+          <label for="associated_id"><?=$this->lang->line('associated_id')?> * </label> 
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('associated_id-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-          <input class="form-control" type="text" id="associated_id" name="associated_id" maxlength="45">
-
+          <input class="form-control" type="text" id="associated_id" name="associated_id" maxlength="45" required>
         </div>
 
         <div class=" col-lg-4 form-group">
           <label for="business_strategy"><?=$this->lang->line('business_strategy')?> </label> 
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('business_strategy-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
           <input class="form-control" type="text" id="business_strategy" name="business_strategy" maxlength="45">
-
         </div>
 
         <div class=" col-lg-4 form-group">
           <label for="priority"><?=$this->lang->line('priority')?> </label> 
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('priority-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
           <input class="form-control" type="text" id="priority" name="priority" maxlength="255">
-
         </div>
 
         <div class=" col-lg-12 form-group">
-          <label for="description"><?=$this->lang->line('description')?> </label> 
+          <label for="description"><?=$this->lang->line('description')?> *</label> 
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('description-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
-
-          <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="description" name="description" maxlength="255"></textarea> 
+          <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" type="text" id="description" name="description" maxlength="255" required></textarea> 
 
         </div>
 
@@ -129,7 +122,7 @@
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('validity-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
           <input class="form-control" id="validity" name="validity" maxlength="45">
-          
+
         </div>
 
         <div class=" col-lg-12 form-group">
@@ -137,7 +130,7 @@
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('acceptance_criteria-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
           <textarea oninput="eylem(this, this.value)" class="form-control elasticteste" id="acceptance_criteria" name="acceptance_criteria" maxlength="45"></textarea>
-          
+
         </div>
 
         <div class=" col-lg-12 form-group">
@@ -145,17 +138,17 @@
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('supporting_documentation-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
           <input class="form-control" id="supporting_documentation" name="supporting_documentation" maxlength="45">
-          
+
         </div>
-        
+
         <div class=" col-lg-4 form-group">
           <label for="situation"><?=$this->lang->line('situation')?>Situation</label> 
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('situation-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
 
           <input class="form-control" id="requirement_situation" name="requirement_situation" maxlength="45">
-          
+
         </div>
-        
+
         <div class="col-lg-12">
           <button id="new_quality_plan-submit" type="submit" value="Save" class="btn btn-lg btn-success pull-right">
             <i class="glyphicon glyphicon-ok"></i> <?=$this->lang->line('btn-save')?>
