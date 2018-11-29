@@ -50,4 +50,11 @@ $lang['complexity-low'] = 'Low';
 $lang['complexity-medium'] = 'Medium';
 $lang['complexity-high'] = 'High';
 $lang['complexity-highest'] = 'Highest';
+
+//Alertify
+$lang['alertify-message'] = 'Are you sure that you want to delete it?';
+$lang['alertify-yes'] = 'Yes';
+$lang['alertify-cancel'] = 'Cancel';
+$lang['alertify-success'] = 'You delete it successfully';
+$lang['alertify-Nosuccess'] = 'You did not delete it';
 ?>

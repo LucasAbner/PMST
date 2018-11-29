@@ -25,7 +25,7 @@
 			<br><br>
 			<div class="row">
 				<div class="col-lg-12">
-					<table class="table table-bordered table-striped" id="tableNB">
+					<table class="table table-bordered table-striped" id="tableRR">
 						<thead>
 							<tr>
 								<th class="text-center">#</th>
@@ -57,10 +57,10 @@
 												</form>
 											</div>
 											<div class="col-sm-4">
-												<form action="<?php echo base_url() ?>Requirement_registration/delete/<?php echo $requirement_registration->requirement_registration_id; ?>" method="post">
+												
 													<input type="hidden" name="project_id" value="<?=$project_id?>">
-													<button type="submit" class="btn btn-danger" onclick="deletar(<?=$requirement_registration->project_id?>, <?= $requirement_registration->requirement_registration_id; ?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
-												</form>
+													<button type="submit" class="btn btn-danger" onclick="deletar(<?=$requirement_registration->project_id?>, <?= $requirement_registration->requirement_registration_id?>)"><em class="fa fa-trash"></em><span class="hidden-xs"></span></button>
+												
 											</div>
 										</div>
 									</td>
@@ -82,13 +82,17 @@
 				<script src="<?=base_url()?>assets/js/jquery.dataTables.min.js"></script>
 				<script src="<?=base_url()?>assets/js/dataTables.bootstrap.js"></script>
 				<script src="<?=base_url()?>assets/js/dataTables.responsive.js"></script>
+				<!-- JavaScript -->
+				<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
+				<!-- CSS -->
+				<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css"/>
 
 				<script type="text/javascript">
 					'use strict'
 					let table;
 
 					$(document).ready( function () {
-						table = $('#tableNB').DataTable({
+						table = $('#tableRR').DataTable({
 							"columns": [
 							{ "data": "#", "orderable": false},
 							{ "data": "associated_id" },
@@ -101,7 +105,7 @@
 						});
 					} );
 
-					$("#tableNB tbody td.moreInformationTable").on("click", function() {
+					$("#tableRR tbody td.moreInformationTable").on("click", function() {
 						let element = jQuery($(this)[0].parentNode);
 						let tr = element.closest('tr');
 						let row = table.row(tr);
@@ -144,27 +148,27 @@
 						'</table>';
 					}
 
-						function deletar(idProjeto, idRequirement){
+					function deletar(idProjeto, idRequirement){
 							//e.preventDefault();
-							alertify.confirm('Do you agree?').setting({
+							alertify.confirm('<?=$this->lang->line('alertify-message')?>').setting({
 								'labels':{
-									ok: 'Agree',
-									cancel: 'Cancel'
+									ok: '<?=$this->lang->line('alertify-yes')?>',
+									cancel: '<?=$this->lang->line('alertify-cancel')?>'
 								},
 								'reverseButtons': false,
 								'onok': function(){
-									console.log(`Passei o ${idProjeto} e ${idRequirement}`);
+									//console.log(`Passei o ${idProjeto} e ${idRequirement}`);
 									$.post("<?php echo base_url() ?>Requirement_registration/delete/" + idRequirement,
 									{
 										project_id: idProjeto,
 									});
 									location.reload();
-									alertify.success('You agree.');
+									alertify.success('<?=$this->lang->line('alertify-success')?>');
 								},
 								'oncancel': function(){
-									alertify.error('You did not agree.');
+									alertify.error('<?=$this->lang->line('alertify-Nosuccess')?>');
 								}
 							}).show();
 						}
 						
-				</script>
+					</script>
