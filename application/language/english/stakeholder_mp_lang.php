@@ -1,7 +1,7 @@
 <?php
 
 // Title
-$lang['stakeholder_mp-title'] = 'Stakeholder Management';
+$lang['stakeholder_mp'] = 'Stakeholder Management';
 
 //Table
 $lang['stakeholder'] = 'Stakeholder';
@@ -11,7 +11,7 @@ $lang['influence'] = "Influence";
 $lang['impact'] = "Impact";
 $lang['average'] = "Average";
 $lang['current_engagement'] = "Current Engagement";
-$lang['expected_engagement'] = "Current Engagement";
+$lang['expected_engagement'] = "Expected Engagement";
 $lang['scope'] = "Scope";
 $lang['strategy'] = "Strategy";
 $lang['observation'] = "Observation";

@@ -19,13 +19,23 @@ class Stakeholder_mp_model extends CI_Model{
 	}
 
 	public function get(){
-		$query = $this->db->get_where('stakeholder');
+		$query = $this->db->get_where('stakeholder_mp');
 		return $query->result();
 	}
 
-	public function deleteStake_mp($id){
-			$this->db->where('stakeholder_mp.stakeholder_mp_id', $id);
-			return $this->db->delete('stakeholder_mp');
-		}
+	public function delete($id){
+		$this->db->where('stakeholder_mp.stakeholder_mp_id', $id);
+		return $this->db->delete('stakeholder_mp');
+	}
+
+	public function update($stakeholder_mp, $stakeholder_mp_id){
+		$this->db->where('stakeholder_mp.stakeholder_mp_id', $stakeholder_mp_id);
+		return $this->db->update('stakeholder_mp', $stakeholder_mp);
+	}
+
+	public function getStakeholders($stakeholder_mp_id){
+		$this->db->where('stakeholder_mp.stakeholder_mp_id', $id);
+		return $query->result();
+	}
 }
 ?>
