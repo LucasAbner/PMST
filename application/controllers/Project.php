@@ -272,9 +272,14 @@ class Project extends CI_Controller
        
     //recebe id do projeto como parametro, faz a busca de todos os dados do mesmo
     //pagina inicial do projeto
-       public function initial($id=null) {
-       	
+       public function initial() {
+
         //validar acesso do usuario
+        $id = $_POST['openButton'];
+
+        //	A linha abaixo recupera o id do Projeto atual salvo na sessão do usuario
+        //	$id = $this->session->userdata('current_project');
+
        	$idusuario = $_SESSION['user_id'];
        	$this->db->where('user_id', $idusuario);
        	$this->db->where('project_id', $id);
@@ -287,6 +292,8 @@ class Project extends CI_Controller
        		$this->db->where('project_id', $id);
        		$this->db->join('user', 'user.user_id = project_user.user_id');
        		$dataproject['members'] = $this->db->get('project_user')->result();
+
+       		$this->session->set_userdata('current_project', $id);
 			   
 			$this->lang->load('project-page','english');
 			// $this->lang->load('project-page','portuguese-brazilian');   
