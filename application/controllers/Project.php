@@ -68,8 +68,9 @@ class Project extends CI_Controller
 	}
 	
     //<!-- Metodo deletar projeto, passa id projeto pra model --> 
-	public function delete($id = null)
+	public function delete()
 	{
+		$id = $_POST['deleteButton'];
 		$insert = $this->project_model->deleteProjectModel($id);
 		if ($insert['status'] == 'success') {
 			$this->session->set_flashdata('success', 'Project Deleted!');
@@ -80,9 +81,9 @@ class Project extends CI_Controller
     //<!-- Fim do metodo deletar --> 
 	
     //<!-- Begin Update method --> 
-	public function update($id = null)
+	public function update()
 	{
-		
+		$id = $_POST['editButton'];
 		$this->db->where('project_id', $id);
 		$dataproject['project'] = $this->db->get('project')->result();
 		
@@ -113,6 +114,7 @@ class Project extends CI_Controller
     //passando id como parametro
 	public function add_researcher_page($id = null)
 	{
+		$id = $_POST['researcherButton'];
 		$this->db->where('project_id', $id);
 		$dataproject['project'] = $this->db->get('project')->result();
 		

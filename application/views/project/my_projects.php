@@ -114,19 +114,23 @@
                                     
                                     <td align="left">
                                         <!-- Modo novo dos botões -->
-                                        <form action="<?= base_url("project/initial") ?>" method="post">
-                                            <button name="openButton"  class="btn btn-default" value="<?= $pro->project_id ?>"><em class="fa fa-folder-open-o"></em><span class="hidden-xs"> Open</span></button>
+                                        <form action="<?= base_url("project/initial") ?>" method="post" style=" display:inline!important;">
+                                            <button name="openButton"  class="btn btn-default fa fa-folder-open-o" value="<?= $pro->project_id ?>" > Open</button>
                                         </form>
 
-                                        <!-- Modo antigo do botão 
-                                            <a href="<?= base_url("project/" . $pro->project_id) ?>" class="btn btn-default"><em class="fa fa-folder-open-o"></em><span class="hidden-xs"> Open</span></a>
-                                        -->
+                                        <form action="<?= base_url("Project/update")?>" method="post" style=" display:inline!important;">
+                                        	<button name="editButton" class="btn btn-default fa fa-pencil" value="<?= $pro->project_id ?>" > Edit</button>
+                                        	
+                                        </form>
 
-                                        <a href="<?= base_url("edit/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-pencil"></em><span class="hidden-xs"> Edit</span></a>
-
-                                        <a href="<?= base_url("researcher/" . $pro->project_id) ?>" class="btn btn-default <?php echo $view . $execute; ?>"><em class="fa fa-users"></em><span class="hidden-xs"> Add Researcher</span></a>
-                                        
-                                        <a href="<?= base_url("delete/" . $pro->project_id) ?>" onclick="return confirm('Are you sure you want to delete <?= $pro->title; ?>?');" class="btn btn-danger <?php echo $view . $execute; ?>"><em class="fa fa-trash"></em><span class="hidden-xs"> Delete</span></a>
+																																								<form action="<?= base_url("Project/add_researcher_page")?>" method="post" style=" display:inline!important;">
+																																									<button name="researcherButton" class="btn btn-default fa fa-users" value="<?= $pro->project_id?>"> Add Researcher</button>
+																																								</form>
+																																					
+                                        <form action="<?= base_url("Project/delete")?>" method="post" style=" display:inline!important;">
+                                        	<button name="deleteButton" class="btn btn-danger fa fa-trash" value="<?= $pro->project_id?>"> Delete</button>
+                                        </form>
+                                 
                                     </td>
                                 </tr>
                             <?php } //print_r($teste)  ?>  
