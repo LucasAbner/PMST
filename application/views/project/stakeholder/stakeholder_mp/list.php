@@ -38,15 +38,15 @@
 								</thead>
 								<tbody>
 									<?php
+
 									foreach ($stakeholder_mp as $stakeholder_mp) {
 										?>
 										<tr dados='<?= json_encode($stakeholder_mp);?>'>
 											<td class="moreInformationTable"></td>
-											<td><?php echo $stakeholder;?></td>
+											<td><?php echo $stakeholder_mp->name;?></td>
 											<td><?php echo $stakeholder_mp->observation;?></td>
 											<td><?php echo $stakeholder_mp->current_engagement;?></td>
 											<td><?php echo $stakeholder_mp->expected_engagement;?></td>
-											<td><?php echo $stakeholder_mp->observation;?></td>
 											<td>
 												<div class="row">
 													<div class="col-sm-4">
@@ -125,13 +125,13 @@
 						});
 						function format (dados) {
 							return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
-							'<tr><td><b><?=$this->lang->line('average')?>: </b>' + dados.average + '</td></tr>'+
-							'<tr><td><b><?=$this->lang->line('interest')?>: </b>' + dados.interest + '</td></tr>'+
-							'<tr><td><b><?=$this->lang->line('power')?>: </b>' + dados.power + '</td></tr>'+
-							'<tr><td><b><?=$this->lang->line('influence')?>: </b>' + dados.influence + '</td></tr>'+
-							'<tr><td><b><?=$this->lang->line('impact')?>: </b>' + dados.impact + '</td></tr>'+
-							'<tr><td><b><?=$this->lang->line('strategy')?>: </b>' + dados.strategy + '</td></tr>'+
-							'<tr><td><b><?=$this->lang->line('scope')?>: </b>' + dados.scope + '</td></tr>'+
+							'<tr><td><b><?=$this->lang->line('strategy')?>: </b>' + dados.strategy + '%</td></tr>'+
+							'<tr><td><b><?=$this->lang->line('scope')?>: </b>' + dados.scope + '%</td></tr>'+
+							'<tr><td><b><?=$this->lang->line('average')?>: </b>' + dados.average + '%</td></tr>'+
+							'<tr><td><b><?=$this->lang->line('interest')?>: </b>' + dados.interest + '%</td></tr>'+
+							'<tr><td><b><?=$this->lang->line('power')?>: </b>' + dados.power + '%</td></tr>'+
+							'<tr><td><b><?=$this->lang->line('influence')?>: </b>' + dados.influence + '%</td></tr>'+
+							'<tr><td><b><?=$this->lang->line('impact')?>: </b>' + dados.impact + '%</td></tr>'+
 							'</table>';
 						}
 					</script>

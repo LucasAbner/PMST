@@ -18,8 +18,8 @@ class Stakeholder_mp extends CI_Controller{
  }
 
  public function list($project_id){
-   $query['stakeholder_mp'] = $this->Stakeholder_mp_model->getWithProject_id($project_id);
-   $query['stakeholder'] = $this->Stakeholder_mp_model->get();
+   //$query['stakeholder_mp'] = $this->Stakeholder_mp_model->getWithProject_id($project_id);
+   $query['stakeholder_mp'] = $this->Stakeholder_mp_model->getWithStakeholder($project_id);
    $query['project_id'] = $project_id;
    $this->load->view('frame/header_view');
    $this->load->view('frame/sidebar_nav_view');
@@ -36,7 +36,7 @@ class Stakeholder_mp extends CI_Controller{
 }
 
 public function edit($stakeholder_mp){
-  $query['stakeholder_mp'] = $this->stakeholder_mp_model->get($stakeholder_mp);
+  $query['stakeholder_mp'] = $this->Stakeholder_mp_model->get($stakeholder_mp);
   $query['project_id'] = $this->input->post('project_id');
   $this->load->view('frame/header_view');
   $this->load->view('frame/sidebar_nav_view'); 
@@ -66,7 +66,7 @@ public function insert(){
 }
 }
 
-public function update(){
+public function update($id){
   $stakeholder_mp['stakeholder_id'] = $this->input->post('stakeholder_id');
   $stakeholder_mp['interest'] = $this->input->post('interest');
   $stakeholder_mp['power'] = $this->input->post('power');
@@ -78,8 +78,9 @@ public function update(){
   $stakeholder_mp['strategy'] = $this->input->post('strategy');
   $stakeholder_mp['scope'] = $this->input->post('scope');
   $stakeholder_mp['observation'] = $this->input->post('observation');
+  $stakeholder_mp['project_id'] = $this->input->post('project_id');
 
-  $query = $this->Stakeholder_mp_model->update($stakeholder_mp);
+  $query = $this->Stakeholder_mp_model->update($stakeholder_mp, $id);
 
   if($query){
     $this->load->view('frame/header_view');
@@ -89,9 +90,12 @@ public function update(){
 }
 
 public function delete($id){
-  $stakeholder_mp = $this->Stakeholder_mp_model->delete($id);
-  if($stakeholder_mp){
-    redirect(base_url('stakeholder_mp/list').$stakeholder_mp['project_id']);
+  $project_id['id'] = $this->input->post('project_id');
+  $query = $this->Stakeholder_mp_model->delete($id);
+  if($query){
+    $this->load->view('frame/header_view');
+    $this->load->view('frame/sidebar_nav_view');
+    redirect(base_url() . 'Stakeholder_mp/list/' . $project_id['id']);
   }
 }
 }

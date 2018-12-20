@@ -43,11 +43,11 @@
           <label for="current_engagement "><?=$this->lang->line('current_engagement')?></label>
           <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('current_engagement-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
           <select name="current_engagement" class="form-control">
-           <option value="unaware"><?=$this->lang->line('unaware')?></option>
-           <option value="supportive"><?=$this->lang->line('supportive')?></option>
-           <option value="leading"><?=$this->lang->line('leading')?></option>
-           <option value="neutral"><?=$this->lang->line('neutral')?></option>
-           <option value="resistant"><?=$this->lang->line('resistant')?></option>
+           <option value="Unaware"><?=$this->lang->line('unaware')?></option>
+           <option value="Supportive"><?=$this->lang->line('supportive')?></option>
+           <option value="Leading"><?=$this->lang->line('leading')?></option>
+           <option value="Neutral"><?=$this->lang->line('neutral')?></option>
+           <option value="Resistant"><?=$this->lang->line('resistant')?></option>
          </select>
        </div>
 
@@ -55,11 +55,11 @@
         <label for="expected_engagement "><?=$this->lang->line('expected_engagement')?></label>
         <a class="btn-sm btn-default" data-toggle="tooltip" data-placement="right" title="<?=$this->lang->line('expected_engagement-tp')?>"><i class="glyphicon glyphicon-comment"></i></a>
         <select name="expected_engagement" class="form-control">
-          <option value="unaware"><?=$this->lang->line('unaware')?></option>
-          <option value="supportive"><?=$this->lang->line('supportive')?></option>
-          <option value="leading"><?=$this->lang->line('leading')?></option>
-          <option value="neutral"><?=$this->lang->line('neutral')?></option>
-          <option value="resistant"><?=$this->lang->line('resistant')?></option>
+          <option value="Unaware"><?=$this->lang->line('unaware')?></option>
+          <option value="Supportive"><?=$this->lang->line('supportive')?></option>
+          <option value="Leading"><?=$this->lang->line('leading')?></option>
+          <option value="Neutral"><?=$this->lang->line('neutral')?></option>
+          <option value="Resistant"><?=$this->lang->line('resistant')?></option>
         </select>
       </div>
 
