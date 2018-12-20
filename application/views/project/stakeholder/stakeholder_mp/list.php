@@ -125,8 +125,8 @@
 						});
 						function format (dados) {
 							return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
-							'<tr><td><b><?=$this->lang->line('strategy')?>: </b>' + dados.strategy + '%</td></tr>'+
-							'<tr><td><b><?=$this->lang->line('scope')?>: </b>' + dados.scope + '%</td></tr>'+
+							'<tr><td><b><?=$this->lang->line('strategy')?>: </b>' + dados.strategy + '</td></tr>'+
+							'<tr><td><b><?=$this->lang->line('scope')?>: </b>' + dados.scope + '</td></tr>'+
 							'<tr><td><b><?=$this->lang->line('average')?>: </b>' + dados.average + '%</td></tr>'+
 							'<tr><td><b><?=$this->lang->line('interest')?>: </b>' + dados.interest + '%</td></tr>'+
 							'<tr><td><b><?=$this->lang->line('power')?>: </b>' + dados.power + '%</td></tr>'+
