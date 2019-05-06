@@ -11,13 +11,6 @@ class Schedule extends CI_Controller
 
 		$this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
-<<<<<<< HEAD
-        $this->lang->load('schedule','english');
-=======
-		$this->lang->load('schedule','english');
->>>>>>> master
-        // $this->lang->load('schedule','portuguese-brazilian');
-
 
 		$this->load->helper('url');
 		$this->load->model('Schedule_model');
@@ -67,17 +60,4 @@ class Schedule extends CI_Controller
 
 
 		//var_dump($shed);
-	
-
-
-
-
-
 }
-
-
-
-
-
-
-?>
