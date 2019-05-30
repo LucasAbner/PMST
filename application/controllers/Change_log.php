@@ -14,7 +14,7 @@ class Change_log extends CI_Controller {
 		//$this->load->helper('url');
 		$this->load->model('project_model');
 		$this->load->model('Change_log_model');
-		
+
 		$this->lang->load('btn','english');
         // $this->lang->load('btn','portuguese-brazilian');
 		$this->lang->load('change_log','english');
@@ -42,18 +42,20 @@ class Change_log extends CI_Controller {
 		$this->load->view('frame/header_view');
 		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/integration/change_log/new', $query);
-	}
+        $this->load->view('project/attachment');
+
+    }
 
 	public function edit($change_log){
 		$query['change_log'] = $this->Change_log_model->get($change_log);
 		$query['project_id'] = $this->input->post('project_id');
 		$this->load->view('frame/header_view');
-		$this->load->view('frame/sidebar_nav_view'); 
+		$this->load->view('frame/sidebar_nav_view');
 		$this->load->view('project/integration/change_log/edit', $query);
 	}
 
 
-	
+
   public function insert() {
         $change_log['id_number'] = $this->input->post('id_number');
         $change_log['requester'] = $this->input->post('requester');
@@ -66,7 +68,7 @@ class Change_log extends CI_Controller {
         $change_log['ccc_feedback_date'] = $this->input->post('ccc_feedback_date');
         $change_log['comments'] = $this->input->post('comments');
         $change_log['project_id'] = $this->input->post('project_id');
-        
+
         $query = $this->Change_log_model->insert($change_log);
 
         if($query){
@@ -119,6 +121,37 @@ class Change_log extends CI_Controller {
             $this->load->view('frame/header_view');
             $this->load->view('frame/sidebar_nav_view');
             redirect(base_url() . 'Change_log/list/' . $project_id['id']);
+        }
+    }
+
+    public function addAttach()
+    {
+        var_dump("teste");
+        if($this->input->post('upload') != NULL ){
+            $data = array();
+            if(!empty($_FILES['file']['name'])){
+                // Set preference
+                $config['upload_path'] = base_url()."assets/images/anexos/";
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                $config['max_size'] = '100'; // max_size in kb
+                $config['file_name'] = $_FILES['file']['name'];
+
+                // Load upload library
+                $this->load->library('upload',$config);
+
+                // File upload
+                var_dump($this->upload->do_upload('file'));
+                if($this->upload->do_upload('file')){
+                    // Get data about the file
+                    $uploadData = $this->upload->data();
+                    $filename = $uploadData['file_name'];
+                    $data['response'] = 'successfully uploaded '.$filename;
+                }else{
+                    $data['response'] = 'failed';
+                }
+            }else{
+                $data['response'] = 'failed';
+            }
         }
     }
 
